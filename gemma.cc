@@ -15,22 +15,7 @@
 
 // Lightweight C++ implementation of the gemma model.
 
-// Compiles this file for multiple architectures via "foreach_target.h", to
-// which we pass the filename via macro 'argument'.
-#undef HWY_TARGET_INCLUDE
-#define HWY_TARGET_INCLUDE "gemma.cc"  // NOLINT
-#include "hwy/foreach_target.h"  // IWYU pragma: keep
-// Must come after foreach_target.h to avoid redefinition errors.
-// copybara:import_next_line:gemma_cpp
-#include "compression/compress-inl.h"
-// copybara:import_next_line:gemma_cpp
-#include "ops.h"
-// copybara:import_next_line:gemma_cpp
-#include "util/args.h"  // Path
-#include "hwy/contrib/matvec/matvec-inl.h"
-#include "hwy/highway.h"
-#include "hwy/profiler.h"
-#include "hwy/timer.h"
+
 
 // Non-SIMD includes and types. Note that HWY_ONCE is only true on the last
 // compile pass, whereas we want this defined in the first.
